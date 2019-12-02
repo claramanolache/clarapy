@@ -1,5 +1,4 @@
 import random
-import turtle
 
 # features:
 # - random
@@ -7,24 +6,36 @@ import turtle
 # - variables
 # - input
 # - eval
+# - list
 # - print
 # - math
 # - comments
 # - loops
-
+# - while
+# - compare
 
 # asking the "customer" what "pizza" they want
 numpizzas = eval(input("How many pizzas do you want?"))
 
-numtopping = eval(input(("How many pizza topping do you want?")))
-toppings = ["olives", "mushrooom", "pineapple", "chicken", "bacon"]
+toppings = ["olives", "mushrooms", "pineapple", "chicken", "bacon"]
 
 pizza_toppings = []
-for i in range(1, numtopping):
-    topping = input("What topping(s) do you want? We have:" + ",".join(toppings))
-    if topping not in toppings:
 
+while True:
+    topping = input("What topping(s) do you want? We have: " + ", " .join(toppings) + "\nPress enter DONE when your selection is complete.")
+
+    if topping == "DONE":
+        break
+    if topping not in toppings:
+        print ("We don't offer ", topping)
+    elif topping in pizza_toppings:
+        print("\nYou already have selected ", topping)
+    else:
         pizza_toppings.append(topping)
+
+numtopping = len(pizza_toppings)
+
+print("You have ordered ", numtopping , "toppings")
 crust = input("What crust do you want on your pizza? We have thin or pan")
 
 # calculating the price
@@ -90,9 +101,7 @@ while player != "leave":
         print("Thanks for playing")
     else:
         print("I think there was some sort of error...")
-print("Your pizza is ready")
-    # player = input("Do you want to be rock, paper, or scissors")
+print("Thank you, your pizza is ready")
 
 # animation
-# turtle.bgcolor("orange")
-# open(#PUT FILE HERE#)
+# TO DO: draw a circle for the pizza
